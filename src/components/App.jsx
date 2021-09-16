@@ -1,20 +1,39 @@
-import React, { Component } from 'react';
-import './App.css'
-import TitleBar from './TitleBar/TitleBar';
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
+import { Route, Switch } from 'react-router-dom';
+import './App.css';
+import LoginPage from './Login/LoginPage';
+import jwtDecode from 'jwt-decode'
+import NavBar from './NavBar/NavBar';
 
-class App extends Component {
-    constructor(props){
-        super(props);
-        this.state = {};
-    }
 
-    render(){
-        return (
-            <div className='container-fluid'>
-                <TitleBar />
-            </div>
-        )
-    }
+function App(){
+    const [currentUser, setCurrentUser] = useState('');
+
+    useEffect(() => {
+        const jwt = localStorage.getItem('token')
+        console.log('use Effect mounted')
+        const user = jwtDecode(jwt);
+        console.log(user)
+
+        if (user) {
+            setCurrentUser(user);
+        }
+    }, [currentUser])
+
+
+
+    return (
+        
+        <div>
+            <NavBar user={currentUser}/>
+            <Switch>
+                <Route path='/login' component={LoginPage} />
+            </Switch>
+        </div>
+                    
+    );
+    
 }
 
 export default App;
