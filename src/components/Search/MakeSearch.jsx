@@ -14,8 +14,12 @@ const MakeSearch = () => {
 
     const makeGetRequest = async (values) => {
         try{
-            let response = await axios.get('https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?regions=us&oddsFormat=american&apiKey=0a73f66454ac71637bf496a86389eb9f')
-            setSearchResults(response.data.items)
+            let response = await axios.get('http://127.0.0.1:8000/api/games/all/')
+            console.log(response)
+            if (response.data) {
+                setSearchResults(response.data)
+            }
+            
         }
         catch(ex){
             console.log(ex)

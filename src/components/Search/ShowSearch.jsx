@@ -6,12 +6,12 @@ const ShowSearch = (props) => {
     return (
         <ListGroup horizontal id="boxborder">
             <ListGroupItem>
-                {console.log(props.displaySearch)}
-                {props.displaySearch.map((recipe, index) => {
+                
+                {props.displaySearch.map((game, index) => {
                     return (
                         <div key={index}>
                             {" "}
-                            Game: {recipe} <br></br>
+                            Game: {game.home_Team} <br></br>
 
                         </div>
                     );

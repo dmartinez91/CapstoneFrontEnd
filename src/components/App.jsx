@@ -47,7 +47,7 @@ function App(){
                 <Route path='/login' component={LoginPage} />
                 <Route path='/register' component={RegisterForm} />
                 <Route path='/search' component={MakeSearch} />
-                <Route exact path="/profile" component={Profile} />
+                
                 <Route path='/mybets' component={ShowUserbets} />
             </Switch>
         </div>
