@@ -5,13 +5,26 @@ import './App.css';
 import LoginPage from './Login/LoginPage';
 import jwtDecode from 'jwt-decode'
 import NavBar from './NavBar/NavBar';
+import RegisterForm from './Register/Register';
+import Profile from './Profile/Profile';
+import MakeSearch from './Search/MakeSearch'
+import ShowUserbets from './Userbets/ShowUserbets';
 
 
 function App(){
-    const [currentUser, setCurrentUser] = useState('');
+    const [currentUser, setCurrentUser] = useState(undefined);
+
+
+
+    const makeGetRequest = async (values) => {
+ 
+    }
+    
 
     useEffect(() => {
-        const jwt = localStorage.getItem('token')
+        makeGetRequest();
+        try{
+            const jwt = localStorage.getItem('token')
         console.log('use Effect mounted')
         const user = jwtDecode(jwt);
         console.log(user)
@@ -19,9 +32,12 @@ function App(){
         if (user) {
             setCurrentUser(user);
         }
-    }, [currentUser])
-
-
+        }
+        catch{
+            console.log("Somethingelse")
+        }
+        
+    }, [])
 
     return (
         
@@ -29,6 +45,10 @@ function App(){
             <NavBar user={currentUser}/>
             <Switch>
                 <Route path='/login' component={LoginPage} />
+                <Route path='/register' component={RegisterForm} />
+                <Route path='/search' component={MakeSearch} />
+                <Route exact path="/profile" component={Profile} />
+                <Route path='/mybets' component={ShowUserbets} />
             </Switch>
         </div>
                     

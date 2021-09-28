@@ -24,6 +24,29 @@ const NavBar = ({user}) => {
                         <Link to="/search" class="nav-link active">Search</Link>
                     </dd>
                     <dd class="nav-item">
+
+                    <dd class="nav-item">
+                    <Link
+                        to="/mybets"
+                        class="nav-link active"
+                        id="navtabs"
+                    >
+                        Your active bets
+                    </Link>
+                </dd>
+                <dd class="nav-item">
+                <Link
+                    to="/leaderboard"
+                    class="nav-link active"
+                    id="navtabs"
+                >
+                    Leader Board
+                </Link>
+            </dd>
+
+
+
+
                             <Logout />
                     </dd>
                 </React.Fragment>
