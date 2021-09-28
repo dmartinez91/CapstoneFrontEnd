@@ -14,7 +14,7 @@ const MakeSearch = () => {
 
     const makeGetRequest = async (values) => {
         try{
-            let response = await axios.get('http://127.0.0.1:8000/api/games/all/')
+            let response = await axios.get('http://127.0.0.1:8000/api/games/all/', values)
             console.log(response)
             if (response.data) {
                 setSearchResults(response.data)

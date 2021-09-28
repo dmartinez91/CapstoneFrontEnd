@@ -7,7 +7,7 @@ import jwtDecode from 'jwt-decode'
 import NavBar from './NavBar/NavBar';
 import RegisterForm from './Register/Register';
 import Profile from './Profile/Profile';
-import MakeSearch from './Search/MakeSearch'
+import MakeSearch from './Games/MakeSearch'
 import ShowUserbets from './Userbets/ShowUserbets';
 
 
@@ -46,7 +46,7 @@ function App(){
             <Switch>
                 <Route path='/login' component={LoginPage} />
                 <Route path='/register' component={RegisterForm} />
-                <Route path='/search' component={MakeSearch} />
+                <Route path='/games' component={MakeSearch} />
                 
                 <Route path='/mybets' component={ShowUserbets} />
             </Switch>

@@ -24,7 +24,7 @@ const NavBar = ({user}) => {
             {user && ( 
                 <React.Fragment>
                     <dd class="nav-item">
-                        <Link to="/search" class="nav-link active">Search</Link>
+                        <Link to="/games" class="nav-link active">Games</Link>
                     </dd>
 
                     <dd class="nav-item">
