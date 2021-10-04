@@ -1,7 +1,7 @@
 import React from "react";
 import { ListGroup,ListGroupItem, Button } from "react-bootstrap";
 
-const ShowSearch = (props) => {
+const ShowGames = (props) => {
 
     return (
         <ListGroup horizontal id="boxborder">
@@ -27,4 +27,4 @@ const ShowSearch = (props) => {
         </ListGroup>
     );
 };
-export default ShowSearch;
+export default ShowGames;

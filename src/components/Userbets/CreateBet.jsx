@@ -10,6 +10,7 @@ class CreateBet extends Component {
             risk: '',
             day_placed: '',
             oddspicked: '',
+            user_id: ''
          }
     }
 
@@ -19,11 +20,12 @@ class CreateBet extends Component {
             risk: betSlipInfo.risk,
             day_placed: betSlipInfo.day_placed,
             oddspicked: betSlipInfo.oddspicked,
+            user_id: betSlipInfo.user_id
             
         }
         console.log(betSlipInfo)
         try{
-            let response = await axios.post('http://127.0.0.1:8000/api/bets/', betSlipInfo);
+            let response = await axios.post('http://127.0.0.1:8000/api/bets/', { withCredentials: true }, betSlipInfo);
             console.log(response.data);
             window.location = '/games';
         }
@@ -48,6 +50,7 @@ class CreateBet extends Component {
         const risk = this.state.risk;
         const day_placed = this.state.day_placed;
         const oddspicked = this.state.oddspicked;
+
         return ( 
             <div class="RegisterForm">
                 <h3>create bet!</h3>
@@ -58,6 +61,7 @@ class CreateBet extends Component {
                     <input class="m-2" name="day_placed" type="date" placeholder="day placed" value={day_placed} onChange={this.handleChange} />
                     <input class="m-2" name="oddspicked" type="text" placeholder="Slip Odds" value={oddspicked} onChange={this.handleChange} />
                     <br />
+                    
                     <input id="newUserButton" name="submit" type="Submit" value="Complete Bet Slip" className="btn btn-secondary m-2" />
                 </form>
             </div>
@@ -66,52 +70,3 @@ class CreateBet extends Component {
 }
  
 export default CreateBet;
-
-
-// import React, {useEffect, useState} from 'react';
-// import axios from 'axios'
-// import SearchBets from './SearchBets';
-// import Userbets from './Userbets';
-// import { ListGroup, ListGroupItem, Button } from 'react-bootstrap';
-
-
-// const CreateBet = (props) => {
-    
-//     return (
-//         <ListGroup horizontal id="boxborder">
-//             <ListGroupItem>
-//                 {console.log(props.makeBet)}
-//                 {props.makeBet.map((bet, index) => {
-//                     return (
-//                         <div key={index}>
-//                             {" "}
-//                         <ListGroupItem>
-//                     <form  onSubmit={(event) => props.handlesubmit(event)}>
-//                         <label>Odds</label>
-//                         <input name="" onChange={props.handleChange} value = {bet.oddspicked}/>
-//                         <label>Game ID</label>
-//                         <input name="album" onChange={props.handleChange} value = {bet.game_id}/>
-//                         <label>Risk</label>
-//                         <input name="artist" onChange={props.handleChange} value = {bet.risk}/>
-//                         <label>Day placed</label>
-//                         <input name="release_date" onChange={props.handleChange} value = {bet.day_placed}/>
-//                         <button type="submit">Create Bet</button>
-//                     </form>
-
-//                         </ListGroupItem>
-//                         </div>
-//                     );
-//                 })}
-//             </ListGroupItem>
-
-
-
-//         </ListGroup>
-
-        
-
-//     );
-// };
-
-
-// export default CreateBet; 
