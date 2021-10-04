@@ -1,10 +1,9 @@
 import axios from "axios";
 import React, {useEffect, useState} from 'react';
 import jwtDecode from "jwt-decode";
-import SearchBets from "./SearchBets";
 import Userbets from "./Userbets";
-import SportsBookAPI from '../../api/sportsbook'
 import CreateBet from "./CreateBet";
+import LoginUser from "../Login/LoginHooks";
 
 
 
@@ -23,6 +22,8 @@ const ShowUserbets = () => {
             console.log(response)
             if (response.data) {
                 setSearchResults(response.data)
+                console.log('below is the shit')
+               
             }
             
         }
@@ -45,7 +46,7 @@ const ShowUserbets = () => {
 
     return (
         <div> 
-            <SearchBets makeSearch={makeGetRequest}/>
+            
             <Userbets displaySearch={searchResults}/>
             <CreateBet makeBet={createBetSlip}/>
             

@@ -1,24 +1,54 @@
-import Axios from "axios"
+import Axios from "axios";
 
 const axios = Axios.create({
-
-  baseURL: 'http://127.0.0.1:8000/api',
+  baseURL: "http://127.0.0.1:8000/api",
   timeout: 1000,
-  headers: {'X-Custom-Header': 'foobar'}
-})
+});
 
-const getBets = async () => {
-    let response = await axios.get('/bets/all/')
-    return response.data
-}
-            
+const getUserToken = () => {
+  const jwt = localStorage.getItem("token");
+  if (!jwt) throw new Error("User Token Not Found");
+  return "Bearer " + jwt;
+};
 
-const createBet = async () => {
-    let response = await axios.post('http://127.0.0.1:8000/api/bets/all/')
-    return response.data
-}
-            
+const Games = {
+  get: async () => {
+    let response = await axios.get("/games/all/");
+    return response.data;
+  },
+  create: async (gameData) => {
+    const jwtToken = getUserToken();
+    try {
+      let response = await axios.post("/games/", gameData, {
+        headers: { Authorization: jwtToken },
+      });
+      return response.data;
+    } catch (error) {
+      console.log("Oh no something went wrong!", error.response);
+      throw error;
+    }
+  },
+};
 
-const SportsBookModule = { getBets }
+const Bets = {
+  get: async () => {
+    let response = await axios.get("/bets/all/");
+    return response.data;
+  },
+  create: async (betData) => {
+    const jwtToken = getUserToken();
+    try {
+      let response = await axios.post("/bets/", betData, {
+        headers: { Authorization: jwtToken },
+      });
+      return response.data;
+    } catch (error) {
+      console.log("Oh no something went wrong!", error.response);
+      throw error;
+    }
+  },
+};
 
-export default SportsBookModule
+const SportsBookModule = { Bets, Games };
+
+export default SportsBookModule;

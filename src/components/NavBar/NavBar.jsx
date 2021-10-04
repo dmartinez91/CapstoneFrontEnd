@@ -31,6 +31,10 @@ const NavBar = ({user}) => {
                         <Link to="/mybets" class="nav-link active" id="navtabs"> Your active bets </Link>
                     </dd>
 
+                    <dd class="nav-item">
+                        <Link to="/sportsbooks" class="nav-link active" id="navtabs"> Sportsbooks </Link>
+                    </dd>
+
                     <dd class="nav-item" id="navtabs">  <Logout />
                     </dd>
 

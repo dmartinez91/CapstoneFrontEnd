@@ -9,6 +9,7 @@ import RegisterForm from './Register/Register';
 import Profile from './Profile/Profile';
 import MakeSearch from './Games/MakeSearch'
 import ShowUserbets from './Userbets/ShowUserbets';
+import ShowAPI from './SearchAPI/ShowAPI';
 
 
 function App(){
@@ -25,13 +26,13 @@ function App(){
         makeGetRequest();
         try{
             const jwt = localStorage.getItem('token')
-        console.log('use Effect mounted')
-        const user = jwtDecode(jwt);
-        console.log(user)
+            console.log('use Effect mounted')
+            const user = jwtDecode(jwt);
+            console.log(user)
 
-        if (user) {
-            setCurrentUser(user);
-        }
+            if (user) {
+                setCurrentUser(user);
+            }
         }
         catch{
             console.log("Somethingelse")
@@ -47,7 +48,7 @@ function App(){
                 <Route path='/login' component={LoginPage} />
                 <Route path='/register' component={RegisterForm} />
                 <Route path='/games' component={MakeSearch} />
-
+                <Route path='/sportsbooks' component={ShowAPI} />
                 <Route path='/mybets' component={ShowUserbets} />
             </Switch>
         </div>
