@@ -69,13 +69,13 @@ class CreateGame extends Component {
                 <h3>create game!</h3>
                 <form onSubmit={(event) => this.handleSubmit(event)}>
                     <input class="m-2" name="home_Team" type="text" placeholder="home Team" value={home_Team} onChange={this.handleChange} />
-                    <input class="m-2" name="away_Team" type="text" placeholder="away Team" value={away_Team} onChange={this.handleChange} />
-                    <br />
                     <input class="m-2" name="home_Team_Spread" type="text" placeholder="Home Spread" value={home_Team_Spread} onChange={this.handleChange} />
-                    <input class="m-2" name="away_Team_Spread" type="text" placeholder="Away spread" value={away_Team_Spread} onChange={this.handleChange} />
-                    <br />
                     <input class="m-2" name="home_Team_ML" type="text" placeholder="Home Money Line" value={home_Team_ML} onChange={this.handleChange} />
+                    <br />
+                    <input class="m-2" name="away_Team" type="text" placeholder="away Team" value={away_Team} onChange={this.handleChange} />
+                    <input class="m-2" name="away_Team_Spread" type="text" placeholder="Away spread" value={away_Team_Spread} onChange={this.handleChange} />
                     <input class="m-2" name="away_Team_ML" type="text" placeholder="Away Money Line" value={away_Team_ML} onChange={this.handleChange} />
+                    <br />                  
                     <input class="m-2" name="over_under" type="text" placeholder="over/under" value={over_under} onChange={this.handleChange} />
                     <input class="m-2" name="gameDay" type="date" placeholder="Game Day" value={gameDay} onChange={this.handleChange} />
                     <input class="m-2" name="sports_Book" type="text" placeholder="Sports Book" value={sports_Book} onChange={this.handleChange} />
