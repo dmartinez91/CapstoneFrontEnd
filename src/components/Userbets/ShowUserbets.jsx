@@ -4,6 +4,7 @@ import jwtDecode from "jwt-decode";
 import SearchBets from "./SearchBets";
 import Userbets from "./Userbets";
 import SportsBookAPI from '../../api/sportsbook'
+import CreateBet from "./CreateBet";
 
 
 
@@ -46,6 +47,7 @@ const ShowUserbets = () => {
         <div> 
             <SearchBets makeSearch={makeGetRequest}/>
             <Userbets displaySearch={searchResults}/>
+            <CreateBet makeBet={createBetSlip}/>
             
         </div>
     )
