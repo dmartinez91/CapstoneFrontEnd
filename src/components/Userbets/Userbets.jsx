@@ -21,10 +21,12 @@ const payoutCalculator = (betSlip) => {
     if (odds > 0) {
         payout = ((odds / 100) * 100) + risk
         payout = parseFloat(payout.toFixed(2))
-    } else { 
+    } else if (odds < 0) { 
         payout = Math.abs((100 / (odds)) * risk) + risk
         payout = parseFloat(payout.toFixed(2))
-    } 
+    } else {
+        payout = 0;
+    }
     
     return payout 
 }
