@@ -9,7 +9,7 @@ import RegisterForm from "./Register/Register";
 import Profile from "./Profile/Profile";
 import MakeSearch from "./Games/MakeSearch";
 import ShowUserbets from "./Userbets/ShowUserbets";
-import GetAPI from "./SearchAPI/GetAPI";
+import GetAPI from "./SearchAPI/SportsBooksDisplay";
 import SearchBar from "./Games/SearchBar";
 
 function App() {

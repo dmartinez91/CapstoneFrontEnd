@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import SportsBookAPI from "../../api/sportsbook";
-import axios from "axios";
 import { ListGroup, ListGroupItem, Button } from "react-bootstrap";
 
 function SearchBar() {
@@ -18,7 +17,9 @@ function SearchBar() {
           return false;
         }
 
-        const isMatch = game.home_Team.toLowerCase().includes(searchTerm);
+        const isMatch =
+          game.home_Team.toLowerCase().includes(searchTerm) ||
+          game.away_Team.toLowerCase().includes(searchTerm);
 
         if (isMatch) {
           return true;

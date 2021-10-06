@@ -1,13 +1,6 @@
 import React from "react";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 
-/**
- *
- * @param {object} betSlip - betSlip
- * @param {number} betSlip.risk - dollar amount wagered
- * @param {number} betSlip.oddspicked - odds (e.g. +100/-115)
- * @returns {number} winnings in dollars
- */
 const payoutCalculator = (betSlip) => {
   console.log(`inside of payout ${betSlip}`);
   let risk = betSlip.risk;
@@ -51,38 +44,3 @@ const Userbets = (props) => {
   );
 };
 export default Userbets;
-
-// const Userbets = (props) => {
-//     return (
-//         <React.Fragment>
-//         <form>
-//         <div>
-//             <table className="table table-bordered border-primary">
-//                 <tr>
-//                     <th className="table-primary">risk</th>
-//                     <th className="table-primary">day placed</th>
-//                     <th className="table-primary">game id</th>
-//                     <th className="table-primary">user ID </th>
-
-//                 </tr>
-//                     {props.showMusic.map(showMusic => (
-//                         <tr key={showMusic.id}>
-
-//                             <td className="table-primary">{showMusic.risk}</td>
-//                             <td className="table-primary">{showMusic.day_placed}</td>
-//                             <td className="table-primary">{showMusic.game_id}</td>
-//                             <td className="table-primary">{showMusic.user_id}</td>
-
-//                         </tr>
-
-//                         ))}
-//             </table>
-
-//          </div>
-
-//         </form>
-//         </React.Fragment>
-//      );
-// }
-
-// export default Userbets;
