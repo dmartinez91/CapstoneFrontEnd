@@ -1,16 +1,15 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import SearchBar from "./SearchForm";
+import CreateGame from "../Games/CreateGame";
+import SportsBookAPI from "../../api/sportsbook";
 
 const GetAPI = () => {
   const [apiResults, setAPIResults] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(
-        "https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?regions=us&oddsFormat=american&apiKey=0a73f66454ac71637bf496a86389eb9f"
-      )
+    SportsBookAPI.sportbookAPIDATA
+      .get()
       .then((response) => {
         console.log(response);
         setAPIResults(response.data);
@@ -21,6 +20,7 @@ const GetAPI = () => {
   return (
     <div>
       <SearchBar searchSportsBooks={SearchBar} />
+
       <ListGroup>
         {apiResults.map((game) => (
           <ListGroupItem key={game.id}>
@@ -49,6 +49,7 @@ const GetAPI = () => {
                 </ListGroupItem>
               );
             })}
+            <CreateGame makeGame={CreateGame} />
           </ListGroupItem>
         ))}
       </ListGroup>

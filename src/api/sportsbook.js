@@ -1,5 +1,11 @@
 import Axios from "axios";
 
+// const sportbookAPIDATA = Axios.create({
+//   baseURL:
+//     "https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?regions=us&oddsFormat=american&apiKey=5e49b7b0472fc56fdfe6c4c8cbbb9013",
+//   timeout: 5000,
+// });
+
 const sportbookAPIDATA = Axios.create({
   baseURL:
     "https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?regions=us&oddsFormat=american&apiKey=0a73f66454ac71637bf496a86389eb9f",
@@ -44,10 +50,10 @@ const AllPortfolios = {
 };
 
 const getUserPortFolio = {
-  get: async (userPortfolio) => {
+  get: async () => {
     const jwtToken = getUserToken();
     try {
-      let response = await axios.get("/portfolio/", userPortfolio, {
+      let response = await axios.get("/portfolio/", {
         headers: { Authorization: jwtToken },
       });
       return response.data;
@@ -102,6 +108,7 @@ const SportsBookModule = {
   GamesAPI,
   AllPortfolios,
   getUserPortFolio,
+  sportbookAPIDATA,
 };
 
 export default SportsBookModule;
