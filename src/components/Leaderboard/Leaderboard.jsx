@@ -15,9 +15,32 @@ const Leaderboard = () => {
       .catch();
   }, []);
 
+  const sortByWinnings = () => {
+    const sorted = portfolios.sort((a, b) => {
+      return b.moneyWon - a.moneyWon;
+    });
+    setPortfolios(sorted);
+  };
+
   return (
     <div>
       <ListGroup>
+        {portfolios.map((portfolio) => (
+          <ListGroupItem key={portfolio.id}>
+            Portfolio ID: {portfolio.id} <br></br>
+            Total wins: {portfolio.betsWon}
+            <br></br>
+            Total losses: {portfolio.betLost}
+            <br></br>
+            Money Won: ${portfolio.moneyWon}
+            <br></br>
+            Money Lost: ${portfolio.moneyLost}
+            <br></br>
+            Net Gain: ${portfolio.netGain}
+            <br></br>
+          </ListGroupItem>
+        ))}
+        <button onClick={sortByWinnings}>Sort by Winnings</button>
         {portfolios.map((portfolio) => (
           <ListGroupItem key={portfolio.id}>
             Portfolio ID: {portfolio.id} <br></br>
