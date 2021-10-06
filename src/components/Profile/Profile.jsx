@@ -1,14 +1,15 @@
 import React from "react";
 import LoginUser from "../Login/LoginHooks";
+import currentUser from "../App";
 
 const Profile = () => {
-  const currentUser = LoginUser();
+  const user = currentUser();
 
   return (
     <div className="container">
       <header className="jumbotron">
         <h3>
-          <strong>{currentUser.username}</strong> Profile
+          <strong>{user.username}</strong> Profile
         </h3>
       </header>
       <p>

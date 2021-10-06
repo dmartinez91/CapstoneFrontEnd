@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { ListGroup, ListGroupItem, Button } from "react-bootstrap";
+import { ListGroup, ListGroupItem } from "react-bootstrap";
 
 const GetAPI = () => {
   const [apiResults, setAPIResults] = useState([]);
@@ -36,7 +36,7 @@ const GetAPI = () => {
                         {odds.outcomes.map((teamOdds) => {
                           return (
                             <div>
-                              Team: {teamOdds.name} <br></br> odds:{" "}
+                              Team: {teamOdds.name} <br></br> Head to Head Odds:{" "}
                               {teamOdds.price}
                             </div>
                           );

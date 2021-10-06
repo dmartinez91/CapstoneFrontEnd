@@ -10,6 +10,7 @@ import Profile from "./Profile/Profile";
 import MakeSearch from "./Games/MakeSearch";
 import ShowUserbets from "./Userbets/ShowUserbets";
 import GetAPI from "./SearchAPI/GetAPI";
+import SearchBar from "./Games/SearchBar";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -41,6 +42,7 @@ function App() {
         <Route path="/games" component={MakeSearch} />
         <Route path="/sportsbooks" component={GetAPI} />
         <Route path="/mybets" component={ShowUserbets} />
+        <Route path="/profile" component={Profile} />
       </Switch>
     </div>
   );
