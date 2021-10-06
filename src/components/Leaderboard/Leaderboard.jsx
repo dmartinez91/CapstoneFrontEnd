@@ -22,6 +22,16 @@ const Leaderboard = () => {
     setPortfolios(sorted);
   };
 
+  const sortByWinPercentage = () => {
+    const sorted = portfolios.sort((a, b) => {
+      return (
+        b.betsWon / (b.betswon + b.betLost) -
+        a.betsWon / (a.betsWon + a.betLost)
+      );
+    });
+    setPortfolios(sorted);
+  };
+
   return (
     <div>
       <ListGroup>
@@ -41,6 +51,7 @@ const Leaderboard = () => {
           </ListGroupItem>
         ))}
         <button onClick={sortByWinnings}>Sort by Winnings</button>
+        <button onClick={sortByWinPercentage}>Sort by Win Percentage</button>
       </ListGroup>
     </div>
   );
