@@ -1,16 +1,16 @@
 import Axios from "axios";
 
-// const sportbookAPIDATA = Axios.create({
-//   baseURL:
-//     "https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?regions=us&oddsFormat=american&apiKey=5e49b7b0472fc56fdfe6c4c8cbbb9013",
-//   timeout: 5000,
-// });
-
 const sportbookAPIDATA = Axios.create({
   baseURL:
-    "https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?regions=us&oddsFormat=american&apiKey=0a73f66454ac71637bf496a86389eb9f",
+    "https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?regions=us&oddsFormat=american&apiKey=5e49b7b0472fc56fdfe6c4c8cbbb9013",
   timeout: 5000,
 });
+
+// const sportbookAPIDATA = Axios.create({
+//   baseURL:
+//     "https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?regions=us&oddsFormat=american&apiKey=0a73f66454ac71637bf496a86389eb9f",
+//   timeout: 5000,
+// });
 
 const axios = Axios.create({
   baseURL: "http://127.0.0.1:8000/api",
@@ -53,7 +53,7 @@ const getUserPortfolio = {
   update: async (portfolioUpdate) => {
     const jwtToken = getUserToken();
     try {
-      let response = await axios.put(`/portfolio/16`, portfolioUpdate, {
+      let response = await axios.put(`/portfolio/15`, portfolioUpdate, {
         headers: { Authorization: jwtToken },
       });
 

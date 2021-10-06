@@ -32,27 +32,34 @@ const Leaderboard = () => {
     setPortfolios(sorted);
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    sortByWinPercentage();
+  };
+
   return (
     <div>
-      <ListGroup>
-        {portfolios.map((portfolio) => (
-          <ListGroupItem key={portfolio.id}>
-            Portfolio ID: {portfolio.id} <br></br>
-            Total wins: {portfolio.betsWon}
-            <br></br>
-            Total losses: {portfolio.betLost}
-            <br></br>
-            Money Won: ${portfolio.moneyWon}
-            <br></br>
-            Money Lost: ${portfolio.moneyLost}
-            <br></br>
-            Net Gain: ${portfolio.netGain}
-            <br></br>
-          </ListGroupItem>
-        ))}
-        <button onClick={sortByWinnings}>Sort by Winnings</button>
-        <button onClick={sortByWinPercentage}>Sort by Win Percentage</button>
-      </ListGroup>
+      <form onSubmit={(event) => handleSubmit(event)}>
+        <ListGroup>
+          {portfolios.map((portfolio) => (
+            <ListGroupItem key={portfolio.id}>
+              Portfolio ID: {portfolio.id} <br></br>
+              Total wins: {portfolio.betsWon}
+              <br></br>
+              Total losses: {portfolio.betLost}
+              <br></br>
+              Money Won: ${portfolio.moneyWon}
+              <br></br>
+              Money Lost: ${portfolio.moneyLost}
+              <br></br>
+              Net Gain: ${portfolio.netGain}
+              <br></br>
+            </ListGroupItem>
+          ))}
+          <button onClick={sortByWinnings}>Sort by Winnings</button>
+          <button onClick={sortByWinPercentage}>Sort by Win Percentage</button>
+        </ListGroup>
+      </form>
     </div>
   );
 };
