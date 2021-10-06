@@ -7,7 +7,7 @@ const NavBar = ({ user }) => {
     <div class="p-2">
       <a href="/" id="homelink" class="nav-link">
         {" "}
-        Your bets
+        Home
       </a>
       <dl class="nav nav-tabs">
         {!user && (

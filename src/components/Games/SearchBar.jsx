@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SportsBookAPI from "../../api/sportsbook";
-import { ListGroup, ListGroupItem, Button } from "react-bootstrap";
+import { ListGroupItem } from "react-bootstrap";
 
 function SearchBar() {
   const [searchTerm, setSearchTerm] = React.useState("");
@@ -11,7 +11,7 @@ function SearchBar() {
   };
   useEffect(() => {
     const gameFilter = (unfilteredGameData) => {
-      console.log(unfilteredGameData);
+      console.log(`here is my ${unfilteredGameData} games in database`);
       return unfilteredGameData.filter((game) => {
         if (searchTerm.length <= 0) {
           return false;

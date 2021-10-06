@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
-import jwtDecode from "jwt-decode";
 import ShowGames from "./ShowGames";
 import CreateGame from "./CreateGame";
 

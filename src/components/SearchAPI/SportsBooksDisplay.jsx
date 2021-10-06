@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
-
+import SearchBar from "./SearchForm";
 const GetAPI = () => {
   const [apiResults, setAPIResults] = useState([]);
 
@@ -19,6 +19,7 @@ const GetAPI = () => {
 
   return (
     <div>
+      <SearchBar searchSportsBooks={SearchBar} />
       <ListGroup>
         {apiResults.map((game) => (
           <ListGroupItem key={game.id}>
