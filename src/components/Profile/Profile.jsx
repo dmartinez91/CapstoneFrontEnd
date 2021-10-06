@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import currentUser from "../App";
+import UserPortfolio from "./UserPorfolio";
 
 const Profile = () => {
   const user = currentUser();
@@ -13,6 +14,7 @@ const Profile = () => {
 
   return (
     <div className="container">
+      <UserPortfolio displayUserPortfolio={UserPortfolio} />
       <header className="jumbotron">
         <h3>
           <strong>{user.username}</strong> Profile

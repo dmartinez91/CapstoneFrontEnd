@@ -29,6 +29,33 @@ const AllPortfolios = {
     let response = await axios.get("/portfolio/all/");
     return response.data;
   },
+  update: async (userPortfolio) => {
+    const jwtToken = getUserToken();
+    try {
+      let response = await axios.post("/portfolio/", userPortfolio, {
+        headers: { Authorization: jwtToken },
+      });
+      return response.data;
+    } catch (error) {
+      console.log("Oh no something went wrong!", error.response);
+      throw error;
+    }
+  },
+};
+
+const getUserPortFolio = {
+  get: async (userPortfolio) => {
+    const jwtToken = getUserToken();
+    try {
+      let response = await axios.get("/portfolio/", userPortfolio, {
+        headers: { Authorization: jwtToken },
+      });
+      return response.data;
+    } catch (error) {
+      console.log("Oh no something went wrong!", error.response);
+      throw error;
+    }
+  },
 };
 
 const Games = {
@@ -69,6 +96,12 @@ const Bets = {
   },
 };
 
-const SportsBookModule = { Bets, Games, GamesAPI, AllPortfolios };
+const SportsBookModule = {
+  Bets,
+  Games,
+  GamesAPI,
+  AllPortfolios,
+  getUserPortFolio,
+};
 
 export default SportsBookModule;
