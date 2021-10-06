@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, ListGroup, ListGroupItem } from "react-bootstrap";
 import currentUser from "../App";
 import UserPortfolio from "./UserPorfolio";
 import UpdatePortfolio from "./UpdatePortfolio";
@@ -15,64 +15,69 @@ const Profile = () => {
 
   return (
     <div className="container">
-      <UserPortfolio displayUserPortfolio={UserPortfolio} />
-      <header className="jumbotron">
-        <h3>
-          <strong>{user.username}</strong> Profile
-        </h3>
-      </header>
-      <p>
-        <strong>Id:</strong> {currentUser.id}
-      </p>
-      <p>
-        <strong>Email:</strong> {currentUser.email}
-      </p>
-      <p>
-        <strong>Total Winnings ${grossWinnings} </strong>
-      </p>
-      <p>
-        <strong>
-          Betting Record: {wins} - {losses} Percentage: {winningPercentage} %
-        </strong>
-      </p>
-      <React.Fragment>
-        <div>
-          <Button
-            onClick={() => {
-              setWins((c) => c + 1);
-            }}
-          >
-            {" "}
-            +
-          </Button>
-          Wins: {wins}
-          <Button
-            onClick={() => {
-              setLosses((c) => c + 1);
-            }}
-          >
-            +
-          </Button>
-          Losses: {losses}
-        </div>
-        <label>
-          Money Won:
-          <input
-            type="text"
-            value={moneyWon}
-            onChange={(event) => setMoneyWon(event.target.value)}
-          />
-        </label>
-        <label>
-          Money Lost:
-          <input
-            type="text"
-            value={moneyLost}
-            onChange={(event) => setMoneyLost(event.target.value)}
-          />
-        </label>
-      </React.Fragment>
-      <br></br>
+      <ListGroup>
+        <ListGroupItem>
+          <UserPortfolio displayUserPortfolio={UserPortfolio} />
+          <header className="jumbotron">
+            <h3>
+              <strong>{user.username}</strong> Profile
+            </h3>
+          </header>
+          <p>
+            <strong>Id:</strong> {currentUser.id}
+          </p>
+          <p>
+            <strong>Email:</strong> {currentUser.email}
+          </p>
+          <p>
+            <strong>Total Winnings ${grossWinnings} </strong>
+          </p>
+          <p>
+            <strong>
+              Betting Record: {wins} - {losses} Percentage: {winningPercentage}{" "}
+              %
+            </strong>
+          </p>
+          <React.Fragment>
+            <div>
+              <Button
+                onClick={() => {
+                  setWins((c) => c + 1);
+                }}
+              >
+                {" "}
+                +
+              </Button>
+              Wins: {wins}
+              <Button
+                onClick={() => {
+                  setLosses((c) => c + 1);
+                }}
+              >
+                +
+              </Button>
+              Losses: {losses}
+            </div>
+            <br></br>
+            <label>
+              Money Won:
+              <input
+                type="text"
+                value={moneyWon}
+                onChange={(event) => setMoneyWon(event.target.value)}
+              />
+            </label>
+            <label>
+              Money Lost:
+              <input
+                type="text"
+                value={moneyLost}
+                onChange={(event) => setMoneyLost(event.target.value)}
+              />
+            </label>
+          </React.Fragment>
+        </ListGroupItem>
+      </ListGroup>
       <UpdatePortfolio update={UpdatePortfolio} />
     </div>
   );

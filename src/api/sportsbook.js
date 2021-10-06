@@ -53,9 +53,10 @@ const getUserPortfolio = {
   update: async (portfolioUpdate) => {
     const jwtToken = getUserToken();
     try {
-      let response = await axios.post(`/portfolio/16`, portfolioUpdate, {
+      let response = await axios.put(`/portfolio/16`, portfolioUpdate, {
         headers: { Authorization: jwtToken },
       });
+
       return response.data;
     } catch (error) {
       console.log("Oh no something went wrong!", error.response);
