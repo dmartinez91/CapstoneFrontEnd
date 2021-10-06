@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import currentUser from "../App";
 import UserPortfolio from "./UserPorfolio";
+import UpdatePortfolio from "./UpdatePortfolio";
 
 const Profile = () => {
   const user = currentUser();
@@ -71,6 +72,8 @@ const Profile = () => {
           />
         </label>
       </React.Fragment>
+      <br></br>
+      <UpdatePortfolio update={UpdatePortfolio} />
     </div>
   );
 };

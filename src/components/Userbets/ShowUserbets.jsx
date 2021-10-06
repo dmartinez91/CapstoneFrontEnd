@@ -18,7 +18,6 @@ const ShowUserbets = () => {
       console.log(response);
       if (response.data) {
         setSearchResults(response.data);
-        console.log("below is the shit");
       }
     } catch (ex) {
       console.log(ex);

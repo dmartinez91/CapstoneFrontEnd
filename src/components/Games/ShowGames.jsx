@@ -19,6 +19,7 @@ const ShowGames = (props) => {
                 over/under: {game.over_under} <br></br>
                 Game Day: {game.gameDay} <br></br>
                 Sports book: {game.sports_Book} <br></br>
+                Game ID: {game.id}
               </ListGroupItem>
             </div>
           );

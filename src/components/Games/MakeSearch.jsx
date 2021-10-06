@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
 import ShowGames from "./ShowGames";
 import CreateGame from "./CreateGame";
+import CreateBet from "../Userbets/CreateBet";
 
 const MakeSearch = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -16,7 +17,6 @@ const MakeSearch = () => {
   const makeGetRequest = async () => {
     try {
       let response = await axios.get(`http://127.0.0.1:8000/api/games/all/`);
-      //   console.log(response);
       if (response.data) {
         setSearchResults(response.data);
       }
@@ -40,6 +40,7 @@ const MakeSearch = () => {
     <div>
       <SearchBar makeSearch={makeGetRequest} />
       <ShowGames displaySearch={searchResults} />
+      <CreateBet betslip={CreateBet} />
       <CreateGame makeGame={createGameRequest} />
     </div>
   );

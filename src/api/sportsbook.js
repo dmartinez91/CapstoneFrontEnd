@@ -35,10 +35,13 @@ const AllPortfolios = {
     let response = await axios.get("/portfolio/all/");
     return response.data;
   },
-  update: async (userPortfolio) => {
+};
+
+const getUserPortfolio = {
+  get: async () => {
     const jwtToken = getUserToken();
     try {
-      let response = await axios.post("/portfolio/", userPortfolio, {
+      let response = await axios.get("/portfolio/", {
         headers: { Authorization: jwtToken },
       });
       return response.data;
@@ -47,13 +50,10 @@ const AllPortfolios = {
       throw error;
     }
   },
-};
-
-const getUserPortFolio = {
-  get: async () => {
+  update: async (portfolioUpdate) => {
     const jwtToken = getUserToken();
     try {
-      let response = await axios.get("/portfolio/", {
+      let response = await axios.post(`/portfolio/16`, portfolioUpdate, {
         headers: { Authorization: jwtToken },
       });
       return response.data;
@@ -75,6 +75,7 @@ const Games = {
       let response = await axios.post("/games/", gameData, {
         headers: { Authorization: jwtToken },
       });
+      console.log(`happing in update: ${response.data}`);
       return response.data;
     } catch (error) {
       console.log("Oh no something went wrong!", error.response);
@@ -107,7 +108,7 @@ const SportsBookModule = {
   Games,
   GamesAPI,
   AllPortfolios,
-  getUserPortFolio,
+  getUserPortfolio,
   sportbookAPIDATA,
 };
 
