@@ -24,6 +24,13 @@ const GamesAPI = {
   },
 };
 
+const AllPortfolios = {
+  get: async () => {
+    let response = await axios.get("/portfolio/all/");
+    return response.data;
+  },
+};
+
 const Games = {
   get: async () => {
     let response = await axios.get("/games/all/");
@@ -62,6 +69,6 @@ const Bets = {
   },
 };
 
-const SportsBookModule = { Bets, Games, GamesAPI };
+const SportsBookModule = { Bets, Games, GamesAPI, AllPortfolios };
 
 export default SportsBookModule;

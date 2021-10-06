@@ -52,6 +52,13 @@ const NavBar = ({ user }) => {
               </Link>
             </dd>
 
+            <dd class="nav-item">
+              <Link to="/leaderboard" class="nav-link active" id="navtabs">
+                {" "}
+                Leaderboard{" "}
+              </Link>
+            </dd>
+
             <dd class="nav-item" id="navtabs">
               {" "}
               <Logout />
